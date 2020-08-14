@@ -3,7 +3,7 @@
     "github_owner": "",
     "git_remote_skel": "git@github.com:{{ cookiecutter.github_owner }}/skel.git",
     "docker_repository": "docker.io/{{ cookiecutter.github_owner }}",
-    "project_name": "Un projet sacrément prometteur",
-    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('\\'', '-') }}",
+    "project_name": "Le Projet",
+    "project_slug": "{{ github_owner }}.{{ cookiecutter.project_name.lower().replace(' ', '-').replace('\\'', '-') }}",
     "rocketchat_hook_url": ""
 }
