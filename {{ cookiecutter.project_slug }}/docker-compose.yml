@@ -3,34 +3,34 @@ version: '3'
 services:
 
     apache:
-        build: .
-        image: "{{ cookiecutter.project_slug }}"
+        build: ./services/apache
+        image: "{{ cookiecutter.docker_repository }}"
         labels:
             - "traefik.enable=true"
             - "traefik.http.routers.php.entrypoints=web"
-            - "traefik.http.routers.php.rule=Host(`{{ cookiecutter.project_slug }}.localhost`)"
+            - "traefik.http.routers.php.rule=Host(`{{ cookiecutter.project_slug_short }}.localhost`)"
 
     adminer:
         image: adminer:latest
         labels:
             - "traefik.enable=true"
             - "traefik.http.routers.adminer.entrypoints=web"
-            - "traefik.http.routers.adminer.rule=Host(`adminer.{{ cookiecutter.project_slug }}.localhost`)"
+            - "traefik.http.routers.adminer.rule=Host(`adminer.{{ cookiecutter.project_slug_short }}.localhost`)"
 
     db:
         image: mariadb:latest
         environment:
             MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: {{ cookiecutter.project_slug }}
+            MYSQL_DATABASE: {{ cookiecutter.project_slug_short }}
         volumes:
-            - ./src/bdd.sql:/docker-entrypoint-initdb.d/bdd.sql
+            - ./db/init.sql:/docker-entrypoint-initdb.d/00_init.sql
 
     portainer:
         image: portainer/portainer:1.24.1-alpine
         labels:
             - "traefik.enable=true"
             - "traefik.http.routers.portainer.entrypoints=web"
-            - "traefik.http.routers.portainer.rule=Host(`portainer.{{ cookiecutter.project_slug }}.localhost`)"
+            - "traefik.http.routers.portainer.rule=Host(`portainer.{{ cookiecutter.project_slug_short }}.localhost`)"
             - "traefik.http.services.portainer.loadbalancer.server.port=9000"
 
     traefik:
@@ -43,7 +43,7 @@ services:
         labels:
             - "traefik.enable=true"
             - "traefik.http.routers.traefik.entrypoints=web"
-            - "traefik.http.routers.traefik.rule=Host(`traefik.{{ cookiecutter.project_slug }}.localhost`)"
+            - "traefik.http.routers.traefik.rule=Host(`traefik.{{ cookiecutter.project_slug_short }}.localhost`)"
             - "traefik.http.services.traefik.loadbalancer.server.port=8080"
         ports:
             - "80:80"
