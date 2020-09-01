@@ -36,7 +36,7 @@ Les logiciels suivant doivent être installés sur la machine hôte :
 ### Création d'un nouveau projet à partir du squelette
 
 ```sh
-cookiecutter https://github.com/kobischE/skel.git
+cookiecutter https://github.com/constructions-incongrues/skel.git
 ```
 
 #### Paramètres

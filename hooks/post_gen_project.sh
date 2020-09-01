@@ -27,6 +27,7 @@ fi
 
 # Envoi des sources vers le dépôt distant
 if {{ cookiecutter.github_populate_repo }}; then
+    git remote add origin git@github.com:{{ cookiecutter.github_owner }}/{{ cookiecutter.project_slug }}.git
     git push --tags --set-upstream origin master
 fi
 
