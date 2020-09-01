@@ -1,9 +1,12 @@
 {
     "github_create_repo": ["false", "true"],
-    "github_owner": "",
+    "github_owner": "constructions-incongrues",
     "git_remote_skel": "git@github.com:{{ cookiecutter.github_owner }}/skel.git",
-    "docker_repository": "docker.io/{{ cookiecutter.github_owner }}",
-    "project_name": "Un projet sacrément prometteur",
-    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('\\'', '-') }}",
-    "rocketchat_hook_url": "https://discutons.incongru.org/hooks/wd9Tfwof78pqb6i94/KagGAhiBA6KyWnSXFqJRXCbgqLp599G35gvPWnBPSTt7pMsc",
+    "project_name": "Encore un coup dans le mille",
+    "project_slug": "net.{{ cookiecutter.github_owner }}.{{ cookiecutter.project_name | slugify }}",
+    "project_slug_short": "{{ cookiecutter.project_name | slugify }}",
+    "docker_repository": "docker.io/{{ cookiecutter.github_owner }}/{{ cookiecutter.project_slug_short }}",
+    "rocketchat_hook_url": "",
+
+    "_extensions": ["cookiecutter.extensions.SlugifyExtension"]
 }
