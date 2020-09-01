@@ -53,8 +53,13 @@ cookiecutter https://github.com/kobischE/skel.git
 
 - **`github_create_repo`**
 
-    - Si `true` un dépôt distant est créé sur Github et les sources initiales du projet y sont ajoutées
+    - Si `true` un dépôt distant vide est créé sur Github. Si `false`, on considère que le dépôt distant existe déjà.
     - par défaut : `false`
+
+- **`github_populate_repo`**
+
+    - Si `true` les sources du dépôt locales sont publiées vers le dépôt Github
+    - par défaut : `true`
 
 - **`github_owner`**
 

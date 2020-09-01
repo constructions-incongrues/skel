@@ -14,17 +14,20 @@ if {{ cookiecutter.github_create_repo }}; then
     # Création du dépôt Github
     gh repo create {{ cookiecutter.github_owner }}/{{ cookiecutter.project_slug }} --public
 
-    # Déploiement des modifications
-    git push --tags --set-upstream origin master
-
     # Notification Rocket Chat
-    if [ -z "{{ cookiecutter.rocketchat_hook_url }}" ]; then \
+    if [ -z "{{ cookiecutter.rocketchat_hook_url }}" ]; then
         curl \
             -X POST \
             -H 'Content-Type: application/json' \
             --data '{"alias":"Skel","avatar":"https://i.imgur.com/adBSucj.jpg","text":"Un nouveau dépôt a été créé !","attachments":[{"title":"{{ cookiecutter.github_owner }}/{{ cookiecutter.project_slug }}","title_link":"https://github.com/{{ cookiecutter.github_owner }}/{{ cookiecutter.project_slug }}","text":"Project Github : https://github.com/{{ cookiecutter.github_owner }}/{{ cookiecutter.project_slug }}\nSquelette : {{ cookiecutter.git_remote_skel.replace(':', '/').replace('git@', 'https://') }}" }]}' \
             {{ cookiecutter.rocketchat_hook_url }}
     fi
+
+fi
+
+# Envoi des sources vers le dépôt distant
+if {{ cookiecutter.github_populate_repo }}; then
+    git push --tags --set-upstream origin master
 fi
 
 # Affichage de l'aide du projet

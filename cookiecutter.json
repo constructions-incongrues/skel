@@ -1,5 +1,6 @@
 {
     "github_create_repo": ["false", "true"],
+    "github_populate_repo": ["true", "false"],
     "github_owner": "constructions-incongrues",
     "git_remote_skel": "git@github.com:{{ cookiecutter.github_owner }}/skel.git",
     "project_name": "Encore un coup dans le mille",
