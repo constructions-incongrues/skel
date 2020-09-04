@@ -35,11 +35,11 @@ urls: # Affichage de la liste des URL publiques
 	@echo
 	@echo "  Application"
 	@echo
-	@echo "    \033[36mPage d'accueil\033[0m : http://{{ cookiecutter.project_slug_short }}.localhost"
+	@echo "    \033[36mPage d'accueil\033[0m : http://{{ cookiecutter.project_slug }}.localhost"
 	@echo
 	@echo "  Outils"
 	@echo
-	@echo "    \033[36mAdminer\033[0m : http://adminer.{{ cookiecutter.project_slug_short }}.localhost"
-	@echo "    \033[36mPortainer\033[0m : http://portainer.{{ cookiecutter.project_slug_short }}.localhost"
-	@echo "    \033[36mTraefik\033[0m : http://traefik.{{ cookiecutter.project_slug_short }}.localhost"
+	@echo "    \033[36mAdminer\033[0m : http://adminer.{{ cookiecutter.project_slug }}.localhost"
+	@echo "    \033[36mPortainer\033[0m : http://portainer.{{ cookiecutter.project_slug }}.localhost"
+	@echo "    \033[36mTraefik\033[0m : http://traefik.{{ cookiecutter.project_slug }}.localhost"
 	@echo

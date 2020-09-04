@@ -20,7 +20,7 @@ services:
         image: mysql:5.7.31 
         environment: 
             MYSQL_ROOT_PASSWORD: aav
-            MYSQL_DATABASE: {{ cookiecutter.project_slug_short }}
+            MYSQL_DATABASE: {{ cookiecutter.project_slug }}
         volumes: 
             - ./src/bdd.sql:/docker-entrypoint-initdb.d/bdd.sql    
 
@@ -29,7 +29,7 @@ services:
         labels:
             - "traefik.enable=true"
             - "traefik.http.routers.adminer.entrypoints=web"
-            - "traefik.http.routers.adminer.rule=Host(`adminer.{{ cookiecutter.project_slug_short }}.localhost`)"  
+            - "traefik.http.routers.adminer.rule=Host(`adminer.{{ cookiecutter.project_slug }}.localhost`)"  
         
     php:
         build: .
@@ -37,7 +37,7 @@ services:
         labels:
             - "traefik.enable=true"
             - "traefik.http.routers.php.entrypoints=web"
-            - "traefik.http.routers.php.rule=Host(`php.{{ cookiecutter.project_slug_short }}.localhost`)"
+            - "traefik.http.routers.php.rule=Host(`php.{{ cookiecutter.project_slug }}.localhost`)"
 
 ```            
 

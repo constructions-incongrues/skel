@@ -1,12 +1,11 @@
 {
     "github_create_repo": ["false", "true"],
-    "github_populate_repo": ["true", "false"],
+    "github_populate_repo": ["false", "true"],
     "github_owner": "constructions-incongrues",
-    "git_remote_skel": "git@github.com:{{ cookiecutter.github_owner }}/skel.git",
-    "project_name": "Encore un coup dans le mille",
-    "project_slug": "net.{{ cookiecutter.github_owner }}.{{ cookiecutter.project_name | slugify }}",
-    "project_slug_short": "{{ cookiecutter.project_name | slugify }}",
-    "docker_repository": "docker.io/{{ cookiecutter.github_owner }}/{{ cookiecutter.project_slug_short }}",
+    "git_remote_skel": "git@github.com:constructions-incongrues/skel.git",
+    "project_name": "New Project",
+    "project_slug": "{{ cookiecutter.project_name | slugify }}",
+    "docker_repository": "docker.io/{{ cookiecutter.github_owner }}/{{ cookiecutter.project_slug }}",
     "rocketchat_hook_url": "",
 
     "_extensions": ["cookiecutter.extensions.SlugifyExtension"]

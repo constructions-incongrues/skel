@@ -1,5 +1,6 @@
 GITHUB_OWNER := $${USERNAME}
 PROJECT_SLUG := $$(date +"%s")
+COOKIECUTTER_PARAMS := --no-input
 
 # Commandes publiques
 
@@ -12,8 +13,9 @@ help: ## Affichage de ce message d'aide
 	@echo
 
 test: ## Création d'un projet à partir des sources locales du squelette
-	cookiecutter \
+	@cookiecutter \
 		--output-dir ./tests \
+		$(COOKIECUTTER_PARAMS) \
 		. \
 		git_remote_skel=$$(git config --get remote.origin.url) \
 		github_owner=$(GITHUB_OWNER) \

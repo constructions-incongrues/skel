@@ -39,27 +39,35 @@ Les logiciels suivant doivent être installés sur la machine hôte :
 cookiecutter https://github.com/constructions-incongrues/skel.git
 ```
 
+Il est possible de spécifier des paramètres via la ligne de commande :
+
+```sh
+cookiecutter https://github.com/constructions-incongrues/skel.git \
+    github_owner=$(whoami) \
+    project_name="My Project"
+```
+
 #### Paramètres
 
 - **`docker_repository`**
 
     - Chemin vers un dépôt d'images Docker
-    - par défaut : `docker.io/{{ github_owner }}`
+    - par défaut : `docker.io/constructions-incongrues`
 
 - **`git_remote_skel`**
 
     - URL du dépot Git hébergeant les sources du squelette
-    - par défaut : `git@github.com:{{ github_owner }}/skel.git`
+    - par défaut : `git@github.com:constructions-incongrues/skel.git`
 
 - **`github_create_repo`**
 
-    - Si `true` un dépôt distant vide est créé sur Github. Si `false`, on considère que le dépôt distant existe déjà.
+    - Si `true` un dépôt distant vide est créé sur Github. Si `false`, on considère que le dépôt distant existe déjà à l'adresse `git@github.com:constructions-incongrues/new-project.git`
     - par défaut : `false`
 
 - **`github_populate_repo`**
 
     - Si `true` les sources du dépôt locales sont publiées vers le dépôt Github
-    - par défaut : `true`
+    - par défaut : `false`
 
 - **`github_owner`**
 
@@ -68,12 +76,12 @@ cookiecutter https://github.com/constructions-incongrues/skel.git
 - **`project_name`**
 
     - Le nom complet du projet
-    - par défaut : `Un projet sacrément prometteur`
+    - par défaut : `New Project`
 
 - **`project_slug`**
 
     - L'identifiant textuel du projet
-    - par défaut : `{{ project_name.lower().replace(' ', '-').replace('\\'', '-') }}`
+    - par défaut : `new-project`
 
 - **`rocketchat_hook_url`**
 

@@ -31,5 +31,11 @@ if {{ cookiecutter.github_populate_repo }}; then
     git push --tags --set-upstream origin master
 fi
 
-# Affichage de l'aide du projet
-make --no-print-directory help
+# Aide
+echo
+echo "[\033[36mOK\033[0m] Le nouveau projet \033[36m{{ cookiecutter.project_name }}\033[0m a été créé dans le répertoire \033[36m$(pwd)\033[0m"
+echo "[\033[36mOK\033[0m] Pour commencer à l'utiliser, exécuter les commandes suivantes : "
+echo
+echo "     cd $(pwd)"
+echo "     make help"
+echo
